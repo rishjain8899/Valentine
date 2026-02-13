@@ -1,0 +1,291 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #FFE4E8;
+    font-family: 'Nunito', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+    background-image:
+        radial-gradient(circle at 15% 85%, #ffb3c1 0%, transparent 40%),
+        radial-gradient(circle at 85% 15%, #ff8fa3 0%, transparent 40%),
+        radial-gradient(circle at 50% 50%, #fff0f3 0%, transparent 60%);
+}
+
+/* Floating hearts background */
+.hearts-bg {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.hearts-bg::before,
+.hearts-bg::after {
+    content: '💕 💗 💖 💝 💓';
+    position: absolute;
+    font-size: 1.5rem;
+    opacity: 0.15;
+    animation: floatHearts 12s linear infinite;
+    white-space: nowrap;
+    top: 100%;
+    left: 10%;
+}
+
+.hearts-bg::after {
+    animation-delay: 6s;
+    left: 60%;
+    content: '💗 💕 💓 💖 💝';
+}
+
+@keyframes floatHearts {
+    from { transform: translateY(0); opacity: 0.15; }
+    to { transform: translateY(-110vh); opacity: 0; }
+}
+
+.container {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+h1 {
+    font-size: 2.4rem;
+    color: #d63384;
+    font-weight: 900;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 0px rgba(214, 51, 132, 0.2);
+    animation: wiggle 2s ease-in-out infinite;
+}
+
+@keyframes wiggle {
+    0%, 100% { transform: rotate(-1deg); }
+    50% { transform: rotate(1deg); }
+}
+
+.gif-container {
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+}
+
+#cat-gif {
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+    filter: drop-shadow(0 8px 16px rgba(0,0,0,0.15));
+    transition: opacity 0.3s ease;
+}
+
+.buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+#yes-btn {
+    background: linear-gradient(135deg, #4CAF50, #45a049);
+    color: white;
+    border: none;
+    border-radius: 16px;
+    font-size: 1.6rem;
+    font-weight: 900;
+    font-family: 'Nunito', sans-serif;
+    padding: 18px 45px;
+    cursor: pointer;
+    transition: transform 0.15s, box-shadow 0.15s;
+    box-shadow: 0 6px 20px rgba(76, 175, 80, 0.45);
+    letter-spacing: 1px;
+}
+
+#yes-btn:hover {
+    transform: scale(1.06) translateY(-2px);
+    box-shadow: 0 10px 28px rgba(76, 175, 80, 0.55);
+}
+
+#yes-btn:active {
+    transform: scale(0.98);
+}
+
+#no-btn {
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 700;
+    font-family: 'Nunito', sans-serif;
+    padding: 12px 28px;
+    cursor: pointer;
+    transition: background 0.2s, left 0.25s ease, top 0.25s ease;
+    box-shadow: 0 4px 14px rgba(231, 76, 60, 0.4);
+}
+
+#no-btn:hover {
+    background: linear-gradient(135deg, #c0392b, #a93226);
+}
+
+
+#tease-toast {
+    margin-top: 14px;
+    font-size: 1rem;
+    color: #d63384;
+    font-weight: 700;
+    font-style: italic;
+    opacity: 0;
+    transform: translateY(6px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    min-height: 1.5rem;
+}
+
+#tease-toast.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Music toggle button */
+#music-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.85);
+    border: none;
+    border-radius: 50%;
+    width: 52px;
+    height: 52px;
+    font-size: 1.4rem;
+    cursor: pointer;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    transition: transform 0.2s;
+    z-index: 100;
+}
+
+#music-toggle:hover {
+    transform: scale(1.1);
+}
+
+/* ============================================
+   YES PAGE
+   ============================================ */
+
+.yes-container {
+    padding: 30px 20px 50px;
+    max-width: 500px;
+}
+
+.yes-container h1.yes-title {
+    font-size: 2.4rem;
+    animation: gentlePulse 2.5s ease-in-out infinite;
+    margin-bottom: 16px;
+}
+
+@keyframes gentlePulse {
+    0%, 100% { transform: scale(1); }
+    50%      { transform: scale(1.04); }
+}
+
+/* Photo frame */
+.photo-frame {
+    margin: 0 auto 16px;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid #ff85a2;
+    box-shadow: 0 8px 30px rgba(214, 51, 132, 0.3), 0 0 0 8px rgba(255, 179, 193, 0.3);
+    opacity: 0;
+    animation: fadeSlideUp 0.8s ease 0.3s forwards;
+}
+
+.esmeralda-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+@keyframes fadeSlideUp {
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Smaller GIF on yes page */
+.yes-container .gif-container {
+    margin: 10px auto;
+}
+
+.yes-container #cat-gif {
+    width: 150px;
+    height: 150px;
+}
+
+/* Messages */
+.yes-messages {
+    margin-top: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.yes-message {
+    font-size: 1.15rem;
+    color: #d63384;
+    font-weight: 700;
+    opacity: 0;
+    animation: fadeSlideUp 0.8s ease forwards;
+}
+
+.yes-message:nth-child(1) { animation-delay: 0.6s; }
+.yes-message:nth-child(2) { animation-delay: 1.4s; }
+.yes-message:nth-child(3) { animation-delay: 2.2s; }
+.yes-message:nth-child(4) { animation-delay: 3.0s; }
+.yes-message:nth-child(5) { animation-delay: 3.8s; }
+
+.yes-message.romantic-line {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.05rem;
+    color: #e91e8c;
+}
+
+.yes-message.signoff {
+    margin-top: 8px;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-style: italic;
+    font-size: 1.2rem;
+    color: #c4853a;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Mobile adjustments for yes page */
+@media (max-width: 480px) {
+    .yes-container h1.yes-title {
+        font-size: 1.8rem;
+    }
+    .photo-frame {
+        width: 150px;
+        height: 150px;
+    }
+    .yes-container #cat-gif {
+        width: 120px;
+        height: 120px;
+    }
+    .yes-message {
+        font-size: 1rem;
+    }
+}
