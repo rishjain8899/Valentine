@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>You said yes! 💕</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&family=Playfair+Display:ital,wght@0,600;1,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+    <div class="hearts-bg"></div>
+
+    <div class="container yes-container">
+        <h1 class="yes-title">I knew you'd say yes! 🎉</h1>
+
+        <div class="photo-frame">
+            <img src="public/image.png" alt="Esmeralda" class="esmeralda-photo">
+        </div>
+
+        <div class="gif-container">
+            <img id="cat-gif" src="https://media.tenor.com/eNHbizSfVb0AAAAj/lovemode-cute.gif" alt="Cute character celebrating">
+        </div>
+
+        <div class="yes-messages">
+            <p class="yes-message">Esmeralda, you just made me the happiest person in the world. 💕</p>
+            <p class="yes-message romantic-line"><em>"Eres lo mejor que me ha pasado."</em></p>
+            <p class="yes-message">Every moment with you feels like a dream I never want to wake up from.</p>
+            <p class="yes-message romantic-line"><em>"Contigo, todo tiene sentido."</em></p>
+            <p class="yes-message signoff">With all my love &mdash; Rishabh 💌</p>
+        </div>
+    </div>
+
+    <audio id="bg-music" loop>
+        <source src="music/michael-jackson-billie-jean-official-video-michaeljacksonvevo_wytAmdX3.mp3" type="audio/mpeg">
+    </audio>
+
+    <button id="music-toggle" onclick="toggleMusic()" title="Toggle music">🔊</button>
+
+    <script src="yes-script.js"></script>
+</body>
+</html>
